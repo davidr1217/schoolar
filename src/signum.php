@@ -7,7 +7,7 @@
     $email   = $_POST['e_mail'];
     $passwd  = $_POST['passw'];
 
-    $sql = "INSERT INTO users (firstname, lastname, email, pasword)
+    $sql = "INSERT INTO users (firstname, lastname, email, password)
                 VALUES('$fname','$lname','$email',' $passwd')
     ";
 
