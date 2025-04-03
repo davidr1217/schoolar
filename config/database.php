@@ -22,5 +22,5 @@
         echo "Succcess connection";
     }
 
-    pg_close();
+   // pg_close();
 ?>
