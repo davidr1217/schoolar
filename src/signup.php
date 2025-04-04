@@ -15,7 +15,7 @@
 
     if($res){
         $row = pg_fetch_assoc($res);
-        if($row○['total'] > 0 ){
+        if($row['total'] > 0 ){
             echo"Email already exists";
         }else{
             $sql = "INSERT INTO users (firstname, lastname, email, password)
