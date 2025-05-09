@@ -18,21 +18,37 @@ include('../config/database.php');
             <th>Status</th>
             <th>...</th>
         </tr>
-        <tr>
-            <td>David</td>
-            <td>Rivas</td>
-            <td>daoip@gmail.com</td>
-            <td>Ative</td>
-            <td>
-                <img src = "icons/lapiz-3d.png" width="15">
-                <img src = "icons/bote-de-basura.png" width="15">
-                <img src = "icons/lupa.png" width="15">
-            </td>
-        </tr>
-    
-        <?php
+    <?php
         //Hero code
-        $sql = "SELECT";
+
+    $sql = "
+        select
+            firstname,
+            lastname,
+            email,
+            case when status = true then 'Active' else 'No active' end as status
+        from
+            users;
+    
+        ";
+            $res = pg_query($conn, $sql);
+            if(!$res){
+                echo "Querry error";
+                exit;
+            }
+            while($row = pg_fetch_assoc($res)){
+                echo "<tr>";
+                echo "<td>". $row ['firstname']."</td>";
+                echo "<td>". $row ['lastname']."</td>";
+                echo "<td>". $row ['email']."</td>";
+                echo "<td>". $row ['status']."</td>";
+                echo "<td>";
+                echo  "<a href=''><img src = 'icons/lapiz-3d.png' width='15'></a>";
+                echo  "<a href=''><img src = 'icons/bote-de-basura.png' width='15'></a>";
+                echo  "<a href=''><img src = 'icons/lupa.png' width='15'></a>";
+                echo "</td>";
+                echo "</tr>";
+            }
         ?>
 </table>
 </body>
