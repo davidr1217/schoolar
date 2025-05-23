@@ -16,6 +16,7 @@ include('../config/database.php');
             <th>Lastname </th>
             <th>E-mail</th>
             <th>Status</th>
+            <th>photo</th>
             <th>...</th>
         </tr>
     <?php
@@ -23,6 +24,7 @@ include('../config/database.php');
 
     $sql = "
         select
+            id,
             firstname,
             lastname,
             email,
@@ -42,10 +44,11 @@ include('../config/database.php');
                 echo "<td>". $row ['lastname']."</td>";
                 echo "<td>". $row ['email']."</td>";
                 echo "<td>". $row ['status']."</td>";
+                echo "<td align='center'><img src='phoyo_users/photo_default.png'width='15'></td>";
                 echo "<td>";
                 echo  "<a href=''><img src = 'icons/lapiz-3d.png' width='15'></a>";
-                echo  "<a href=''><img src = 'icons/bote-de-basura.png' width='15'></a>";
                 echo  "<a href=''><img src = 'icons/lupa.png' width='15'></a>";
+                echo  "<a href='http://http://localhost/schoolar/src/delete.php'><img src = 'icons/bote-de-basura.png' width='15'></a>";
                 echo "</td>";
                 echo "</tr>";
             }
